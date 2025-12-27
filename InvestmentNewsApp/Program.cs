@@ -18,7 +18,7 @@ if (string.IsNullOrEmpty(apiKey))
     Console.WriteLine();
     
     // Show sample data when no API key is available
-    var newsService = new NewsService();
+    using var newsService = new NewsService();
     var sampleNews = newsService.GetSampleInvestmentNews();
     DisplayNews(sampleNews);
 }
@@ -27,7 +27,7 @@ else
     Console.WriteLine("✓ API Key found. Fetching real investment news...");
     Console.WriteLine();
     
-    var newsService = new NewsService(apiKey);
+    using var newsService = new NewsService(apiKey);
     
     Console.WriteLine("Fetching latest investment news...");
     var investmentNews = await newsService.GetInvestmentNewsAsync(pageSize: 5);

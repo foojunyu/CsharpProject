@@ -3,10 +3,11 @@ using InvestmentNewsApp.Models;
 
 namespace InvestmentNewsApp.Services;
 
-public class NewsService
+public class NewsService : IDisposable
 {
     private readonly HttpClient _httpClient;
     private const string BaseUrl = "https://newsapi.org/v2";
+    private bool _disposed = false;
     
     public NewsService(string? apiKey = null)
     {
@@ -127,5 +128,23 @@ public class NewsService
                 }
             }
         };
+    }
+    
+    public void Dispose()
+    {
+        Dispose(true);
+        GC.SuppressFinalize(this);
+    }
+    
+    protected virtual void Dispose(bool disposing)
+    {
+        if (!_disposed)
+        {
+            if (disposing)
+            {
+                _httpClient?.Dispose();
+            }
+            _disposed = true;
+        }
     }
 }
