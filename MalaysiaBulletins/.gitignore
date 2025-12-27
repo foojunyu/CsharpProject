@@ -1,0 +1,45 @@
+## .NET specific files
+bin/
+obj/
+*.user
+*.suo
+*.userprefs
+*.cache
+
+## Build results
+[Dd]ebug/
+[Rr]elease/
+x64/
+x86/
+[Bb]uild/
+bld/
+[Bb]in/
+[Oo]bj/
+
+## Visual Studio cache/options directory
+.vs/
+
+## Visual Studio Code
+.vscode/
+
+## ReSharper
+_ReSharper*/
+*.ReSharper
+
+## NuGet Packages
+*.nupkg
+**/packages/*
+!**/packages/build/
+
+## Test results
+[Tt]est[Rr]esult*/
+[Bb]uild[Ll]og.*
+
+## .NET Core
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+## OS specific
+.DS_Store
+Thumbs.db
